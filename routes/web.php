@@ -24,6 +24,7 @@ Route::get('/hello', 'HomeController@hello')->name('hello');
 
 Route::get('/timeline', 'TweetsController@timeline');
 Route::post('/tweet/create', 'TweetsController@createTweet');
+Route::get('/tweet/detail/{tweet_id}', 'TweetsController@displayTweetdetails');
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 

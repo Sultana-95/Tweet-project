@@ -43,15 +43,22 @@
             <div class="col-md-4">
                 <div class="card" style="overflow-y:scroll; max-height:600px">
                     {{--Tweet element--}}
+                    @if(isset($tweets))
                     @foreach ($tweets as $tweet)
                     <div class="media">
-                        <img src="..." class="mr-3" alt="...">
+                        <img width="40px" src="{{asset('images/logo.png')}}" class="mr-3" alt="...">
                         <div class="media-body">
-                          <h5 class="mt-0">{{$tweet->user_id}}</h5>
+                          {{--<h5 class="mt-0">{{ App\User::find($tweet->user_id)->name}}</h5> --}}
+                          <h5 class="mt-0">{{ $tweet->user->name}}</h5>
                           <p>{{$tweet->content}}</p>
                         </div>
                       </div>
+                      <hr>
                       @endforeach
+                      @else
+                       No Tweet
+                      @endif
+
                     {{--#Tweet element--}}
                   
                     
